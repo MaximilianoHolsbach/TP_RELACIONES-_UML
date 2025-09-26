@@ -3,12 +3,22 @@ public class Documento {
     private String titulo;
     private String contenido;
     private FirmaDigital firma; // Composición
-
-    public Documento(String titulo, String contenido, FirmaDigital firma) {
+    //Constructor
+    public Documento(String titulo, String contenido, String codigoHash, String fecha, Usuario usuario) {
         this.titulo = titulo;
         this.contenido = contenido;
-        this.firma = firma;
+        this.firma = new FirmaDigital(codigoHash,fecha,usuario);
+    }
+    //Metodos
+    public String getTitulo() {
+        return titulo;
+    }
+    public String getContenido() {
+        return contenido;
     }
 
-    // Getters y Setters
+    public FirmaDigital getFirma() {
+        return firma;
+    }
+    
 }
